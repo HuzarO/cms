@@ -5,9 +5,9 @@
         .module('app.index')
         .controller('IndexController', IndexController);
 
-    IndexController.$inject = [];
+    IndexController.$inject = ['LanguageService'];
 
-    function IndexController() {
+    function IndexController(LanguageService) {
         var vm = this;
 
     }

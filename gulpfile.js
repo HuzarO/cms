@@ -29,13 +29,14 @@ elixir(function(mix) {
         './bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
         './node_modules/angular-animate/angular-animate.min.js',
         './node_modules/angular-touch/angular-touch.min.js',
+        './node_modules/satellizer/dist/satellizer.min.js',
         './node_modules/angular-loading-bar/build/loading-bar.min.js',
         './bower_components/ngstorage/ngStorage.min.js',
 
 
         'app.module.js',
-        //'app.router.js',
-        //'app.run.js',
+        'app.router.js',
+        'app.run.js',
 
         '*/*.module.js',
         '*/*.controller.js',
