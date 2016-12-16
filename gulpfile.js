@@ -1,6 +1,7 @@
 const elixir = require('laravel-elixir');
 
 require('laravel-elixir-vue-2');
+require('laravel-elixir-livereload');
 
 /*
  |--------------------------------------------------------------------------
@@ -13,7 +14,43 @@ require('laravel-elixir-vue-2');
  |
  */
 
-elixir((mix) => {
-    mix.sass('app.scss')
-       .webpack('app.js');
+elixir(function(mix) {
+    mix.copy([
+        'node_modules/font-awesome/fonts',
+        'node_modules/bootstrap/dist/fonts'
+    ], 'public/fonts');
+
+    mix.scripts([
+        './node_modules/jquery/dist/jquery.min.js',
+        './node_modules/bootstrap/dist/js/bootstrap.min.js',
+        './node_modules/angular/angular.js',
+        './node_modules/angular-ui-router/release/angular-ui-router.min.js',
+        './bower_components/angular-bootstrap/ui-bootstrap.min.js',
+        './bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+        './node_modules/angular-animate/angular-animate.min.js',
+        './node_modules/angular-touch/angular-touch.min.js',
+        './node_modules/angular-loading-bar/build/loading-bar.min.js',
+        './bower_components/ngstorage/ngStorage.min.js',
+
+
+        'app.module.js',
+        //'app.router.js',
+        //'app.run.js',
+
+        '*/*.module.js',
+        '*/*.controller.js',
+        '*/*.factory.js',
+        '*/*.service.js',
+        '*/*.directive.js'
+    ], './public/js/app.js');
+
+    mix.styles([
+        './node_modules/bootstrap/dist/css/bootstrap.min.css',
+        './node_modules/font-awesome/css/font-awesome.min.css',
+        './node_modules/angular-loading-bar/build/loading-bar.min.css',
+
+        'style.css'
+    ], './public/css/app.css');
+
+    mix.livereload();
 });
